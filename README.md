@@ -3,4 +3,4 @@
 # Members:
 * @buimichael / @buimichael@csu.fullerton.edu
 * @Nat-luna / @natgarcia@csu.fullerton.edu
-* @________ / @alee34161@gmail.com
+* @alee34161 / @alee34161@gmail.com
