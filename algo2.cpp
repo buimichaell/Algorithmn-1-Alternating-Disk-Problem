@@ -19,8 +19,8 @@ while(schedules have not been fully parsed) {
 		move the earliest interval to the next one.
 	})
 
-	minPtr = min(availability1.interval[i], availability2.interval[i]);
-	maxPtr = max(availability1.interval[i], availability2.interval[i]);
+	minPtr = min(availability1.intervalEnd[i], availability2.intervalEnd[i]);
+	maxPtr = max(availability1.intervalStart[i], availability2.intervalStart[i]);
 
 	if(minPtr > maxPtr && minPtr - maxPtr >= meetingTime) {
 		availableTimes.push_back([minPtr, maxPtr]);
