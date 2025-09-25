@@ -1,13 +1,18 @@
-# Algorithmn-1-Alternating-Disk-Problem
-* Project 1 for CPSC-335-02
-# Members:
-* @buimichael / @buimichael@csu.fullerton.edu
-* @Nat-luna / @natgarcia@csu.fullerton.edu
-* @alee34161 / @alee34161@gmail.com
+# Algorithmn 01 - Alternating Disk Problem
+  
+  **Overview**: Implementation of Project 1 for CPSC-335, which uses a doubly linked list to sort out all dark disks to the left and all light disks to the right by interchanging two neighboring disks.
 
-# Execution
+## Members:
+  
+   | **Name** | **Email**| **Username** |
+   | :----: | :------: | :-------:    |
+   | Michael Bui | <buimichael@csu.fullerton.edu> | @buimichael |
+   | Natalia Garcia | <natgarcia@csu.fullerton.edu> | @Nat-luna |
+   | Andrew Lee | <alee34161@gmail.com> | @alee34161 | 
 
-Program takes input from file "DiskInput.txt" and outputs into file "DiskOutput.txt"
+## Execution
 
-* Linux: type ./a.out into console from appropriate directory
-* Windows: Run a.exe, however the necessary C++ std libraries must be installed. This method is not recommended.
+   Program takes input from file `DiskInput.txt` and outputs into file `DiskOutput.txt`.
+
+   * **Linux**: Type `./a.out` into console from the appropriate directory.
+   * **Windows**: Run `a.exe`, however, the necessary C++ std libraries must be installed. This method is not recommended.
