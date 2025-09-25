@@ -1,0 +1,2 @@
+dark <-> dark <-> dark <-> light <-> light <-> light
+Swaps: 6

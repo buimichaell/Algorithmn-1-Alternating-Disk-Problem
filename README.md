@@ -3,4 +3,11 @@
 # Members:
 * @buimichael / @buimichael@csu.fullerton.edu
 * @Nat-luna / @natgarcia@csu.fullerton.edu
-* @________ / @alee34161@gmail.com
+* @alee34161 / @alee34161@gmail.com
+
+# Execution
+
+Program takes input from file "DiskInput.txt" and outputs into file "DiskOutput.txt"
+
+* Linux: type ./a.out into console from appropriate directory
+* Windows: Run a.exe, however the necessary C++ std libraries must be installed. This method is not recommended.

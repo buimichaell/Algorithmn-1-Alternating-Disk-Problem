@@ -1,0 +1,8 @@
+The program will only read lines with 'light' or 'dark'
+
+light
+dark
+light
+dark
+light
+dark
