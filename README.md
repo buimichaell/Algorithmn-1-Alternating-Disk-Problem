@@ -10,4 +10,4 @@
 Program takes input from file "DiskInput.txt" and outputs into file "DiskOutput.txt"
 
 * Linux: type ./a.out into console from appropriate directory
-* Windows: Run a.exe
+* Windows: Run a.exe, however the necessary C++ std libraries must be installed. This method is not recommended.
