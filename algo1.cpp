@@ -29,6 +29,8 @@ Notes: This can be optimized for sure, but is pretty simple implementation.
 
 #include <string>
 #include <iostream>
+#include <fstream>
+#include <vector>
 
 struct Node {
 	std::string color;
@@ -44,12 +46,28 @@ void swap(Node* node1, Node* node2);
 void deleteNodes(Node* node);
 
 int main() {
+	std::ifstream inputFile;
+	inputFile.open("DiskInput.txt");
+	if(!inputFile.is_open()) {
+		std::cerr << "Error: could not open DiskInput.txt\n";
+	}
+
+	std::vector<std::string> colors;
+
+	while(!inputFile.eof()) {
+		std::string input;
+		std::getline(inputFile, input);
+		if(input == "light" || input == "dark") {
+			colors.push_back(input);
+		}
+	}
+
 	Node* head = nullptr;
 	Node* tail = nullptr;
-	std::string colors[] = {"light", "dark", "light", "dark", "light", "dark"};
 
-	for(int i = 0; i < 6; i++) {
-		Node* newNode = new Node(colors[i]);
+	int size = colors.size();
+	for(int i = 0; i < size; i++) {
+		Node* newNode = new Node(colors.at(i));
 
 		if(head == nullptr) {
 			head = newNode;
@@ -79,10 +97,17 @@ int main() {
 
 	
 	current = head;
+	std::ofstream outputFile;
+	outputFile.open("DiskOutput.txt");
+	if(!outputFile.is_open()) {
+		std::cerr << "Error: could not open DiskOutput.txt\n";
+	}
 	while(current != nullptr) {
 		std::cout << current->color;
+		outputFile << current->color;
 		if(current->rightNode != nullptr) {
 			std::cout << " <-> ";
+			outputFile << " <-> ";
 		}
 		current = current->rightNode;
 	}
@@ -128,7 +153,7 @@ void swap(Node* node1, Node* node2) {
 
 void deleteNodes(Node* node) {
 	if(!node) {
-		std::cerr << "Error: invalid node on deleteNodes() call";
+		std::cerr << "Error: invalid node on deleteNodes() call\n";
 	}
 	if(node->rightNode) {
 		Node* tempPtr = node->rightNode;
