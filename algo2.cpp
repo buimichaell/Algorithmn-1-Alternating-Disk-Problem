@@ -22,7 +22,7 @@ while(schedules have not been fully parsed) {
 	minPtr = min(availability1.interval[i], availability2.interval[i]);
 	maxPtr = max(availability1.interval[i], availability2.interval[i]);
 
-	if(minPtr < maxPtr) {
+	if(minPtr > maxPtr && minPtr - maxPtr >= meetingTime) {
 		availableTimes.push_back([minPtr, maxPtr]);
 	}
 }
