@@ -7,10 +7,11 @@ convertToInt(schedule1[]);
 convertToInt(schedule2[]);
 convertToInt(dailyAct1[]);
 convertToInt(dailyAct2[]);
-availability1 = findAvailability(schedule1[]);
-availability2 = findAvailability(schedule2[]);
-dailyAct.start = max(dailyAct1[] start, dailyAct2[] start);
-dailyAct.end = min(dailyAct1[] end, dailyAct2[] end);
+overallDailyAct.start = max(dailyAct1[] start, dailyAct2[] start);
+overallDailyAct.end = min(dailyAct1[] end, dailyAct2[] end);
+availability1 = findAvailability(schedule1[], overallDailyAct);
+availability2 = findAvailability(schedule2[], overallDailyAct);
+
 
 while(schedules have not been fully parsed) {
 
