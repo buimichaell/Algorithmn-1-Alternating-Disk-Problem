@@ -40,6 +40,8 @@ struct Node {
 
 
 void recursiveSort(Node* node);
+void swap(Node* node1, Node* node2);
+void deleteNodes(Node* node);
 
 int main() {
 	Node* head = nullptr;
@@ -86,18 +88,54 @@ int main() {
 	}
 	std::cout << std::endl;
 
-
-
-	while(head != nullptr) {
-		Node* next = head->rightNode;
-		delete head;
-		head = next;
-	}
+	deleteNodes(head);
 
 	return 0;
 }
 
 
 void recursiveSort(Node* node) {
-	
+	if(!node->rightNode) return;
+
+	if(node->color == "dark" && node->leftNode && node->leftNode->color == "light") {
+		swap(node->leftNode, node);
+		recursiveSort(node);
+		return;
+	} else if(node->color == "light" && node->rightNode->color == "dark") {
+		swap(node, node->rightNode);
+		recursiveSort(node->leftNode);
+		return;
+	} else {
+		recursiveSort(node->rightNode);
+		return;
+	}
+}
+
+void swap(Node* node1, Node* node2) {
+	Node* tempPtr1 = node1->leftNode;
+	Node* tempPtr2 = node2-> rightNode;
+	node2->leftNode = tempPtr1;
+	node2->rightNode = node1;
+	node1->leftNode = node2;
+	node1->rightNode = tempPtr2;
+	if(tempPtr1) {
+		tempPtr1->rightNode = node2;
+	}
+	if(tempPtr2) {
+		tempPtr2->leftNode = node1;
+	}
+}
+
+void deleteNodes(Node* node) {
+	if(!node) {
+		std::cerr << "Error: invalid node on deleteNodes() call";
+	}
+	if(node->rightNode) {
+		Node* tempPtr = node->rightNode;
+		delete node;
+		deleteNodes(tempPtr);
+		return;
+	}
+	delete node;
+	return;
 }
