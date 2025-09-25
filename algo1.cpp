@@ -49,6 +49,7 @@ void recursiveSort(Node* node);
 void swap(Node* node1, Node* node2);
 void deleteNodes(Node* node);
 
+int swaps = 0;
 
 
 /*
@@ -127,7 +128,12 @@ int main() {
 		}
 		current = current->rightNode;
 	}
-	std::cout << std::endl;
+	std::cout << "\nSwaps: " << swaps << std::endl;
+	outputFile << "\nSwaps: " << swaps << std::endl;
+
+	// close files
+	outputFile.close();
+	inputFile.close();
 
 	// probably unnecessary but manually deleting all nodes
 	deleteNodes(head);
@@ -166,6 +172,9 @@ void recursiveSort(Node* node) {
 }
 
 void swap(Node* node1, Node* node2) {
+	// increment the global swap counter for output
+	swaps++;
+
 	// remember outer neighboring nodes
 	Node* tempPtr1 = node1->leftNode;
 	Node* tempPtr2 = node2-> rightNode;
