@@ -18,3 +18,10 @@
 
    * **Linux**: Type `./a.out` into console from the appropriate directory.
    * **Windows**: Run `a.exe`, however, the necessary C++ std libraries must be installed. This method is not recommended.
+
+## Files Included:
+
+- Algorithm 1 / Alternating Disk
+- Algorithm 2 / Matching Schedules
+- Algorithm Mathematical Analysis
+- Project Report
