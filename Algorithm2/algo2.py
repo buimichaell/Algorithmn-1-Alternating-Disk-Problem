@@ -52,43 +52,31 @@ duration = duration_of_meeting
 """Method converting time string for comparison"""
 def conTime(time):
     time_format = "%H:%M"
-    conv_time = datetime.strptime(time, time_format)
+    return datetime.strptime(time, time_format)
 
 
 """Function that returns a persons availability in time intervals given their schedule and availability"""
 def AvailabilityIntervals(sched, avail):
-    avail_int = avail
-    current = avail[0]
-    last = avail[1]
-    last_time = sched[-1][-1]
-    schedule = []
-    gap_times = []
+    current = conTime(avail[0])
+    last = conTime(avail[1])
+    gap_times = [] # empty list to hold available time gaps
 
-    conTime(current)
-    conTime(last)
-    
-    for start, end in sched:
-        # print statements to check for errors
-        print("Current:", current)
-        print("Start:", start + ", " + end)
-        print("Schedule:", sched)
-        conTime(start)
-        conTime(end)
+    # iterates through the schedule of busy times
+    for start_str, end_str in sched:
+        start = conTime(start_str)
+        end = conTime(end_str)
 
+        # append if the starting time of an interval is bigger
         if start > current:
-            gap_times.append([current, start])
-        elif current > start and current > end:
-            end_time = sched[1][0]
-            gap_times.append([current, end_time])
-            # current = end_time
-        else:
-            current = end 
-        print("Gaps:", gap_times)
+            gap_times.append([current.strftime("%H:%M"), start.strftime("%H:%M")])
+            current = end
 
-        if end < current:
-            current = avail[0]
-        current = end
-        print("Current 2:", current,"\n") 
+        current = max(current, end) # current will equal the biggest time 
+    # appends if current is less than last available time
+    if current < last:
+        gap_times.append([current.strftime("%H:%M"), last.strftime("%H:%M")])
+
+    return gap_times
 
 
 new_sched = AvailabilityIntervals(p1_sched, p1_avail)
