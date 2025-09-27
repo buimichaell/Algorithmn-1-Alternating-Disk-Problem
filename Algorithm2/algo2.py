@@ -35,5 +35,15 @@ def FindTimes(schedule, person1, person2)
 
 """
 
+import datetime from datetime
+
+
+
+"""Method converting time string for comparison"""
+def conTime(time):
+    time_format = "%H:%M"
+    initial = time
+
+    conv_time = datetime.strptime(initial, time_format)
 
 
