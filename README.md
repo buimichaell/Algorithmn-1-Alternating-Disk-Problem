@@ -22,12 +22,12 @@
 
    1. Algorithm 1 program takes input from file `DiskInput.txt` and outputs into file `DiskOutput.txt`.
 
-     * **Linux**: Type `./a.out` into console from the appropriate directory.
-     * **Windows**: Run `a.exe`, however, the necessary C++ std libraries must be installed. This method is not recommended.
+   * **Linux**: Type `./a.out` into console from the appropriate directory.
+   * **Windows**: Run `a.exe`, however, the necessary C++ std libraries must be installed. This method is not recommended.
 
    2. Algorithm 2 program takes input from `sample_input.txt`.
 
-     * **Linux**: Type `python3 algo2.py` into console from the appropriate directory.
+   * **Linux**: Type `python3 algo2.py` into console from the appropriate directory.
 
 ## Files Included:
 
