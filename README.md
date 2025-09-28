@@ -3,10 +3,10 @@
   **Overview**: Implementation of Project 1 for CPSC-335:
 
    * Algorithm 1, uses a doubly linked list to sort out all dark disks to the left and all light disks to the right by interchanging two neighboring disks, and a scheduling array to find availabilities.
-   * * Programming language used: C++
+     * Programming language used: C++
 
    * Algorithm 2, uses a series of functions to calculate a list of free times given people's schedules, their availability, and the duration of the meeting.
-   * * Programming language used: Python
+     * Programming language used: Python
 
 
 ## Members:
@@ -22,12 +22,12 @@
 
    1. Algorithm 1 program takes input from file `DiskInput.txt` and outputs into file `DiskOutput.txt`.
 
-   * * **Linux**: Type `./a.out` into console from the appropriate directory.
-   * * **Windows**: Run `a.exe`, however, the necessary C++ std libraries must be installed. This method is not recommended.
+     * **Linux**: Type `./a.out` into console from the appropriate directory.
+     * **Windows**: Run `a.exe`, however, the necessary C++ std libraries must be installed. This method is not recommended.
 
    2. Algorithm 2 program takes input from `sample_input.txt`.
 
-   * * **Linux**: Type `python3 algo2.py` into console from the appropriate directory.
+     * **Linux**: Type `python3 algo2.py` into console from the appropriate directory.
 
 ## Files Included:
 
