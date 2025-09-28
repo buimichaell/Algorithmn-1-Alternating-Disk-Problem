@@ -83,22 +83,22 @@ def AvailabilityIntervals(sched, avail):
 
 
 """Function that will compare the combined schedule and available times"""
-def CompareTimes(sched, avail):
+def FindTimes(sched, avail):
     sched_list, avail_list, both_free = []
 
+    # converts list for comparison
     for start, end in sched_list:
         conTime(start)
         conTime(end)
         sched_list.append([start, end])
-    
+     # converts list for comparison
     for start, end in avail_list:
         conTime(start)
         conTime(end)
         avail_list.append([start, end])
 
-    current = avail_list[0][0]
+    current = avail_list[0][0] # current set to first time in availability
 
-    print(avail_list)
 
 
 new_sched = AvailabilityIntervals(p1_sched, p1_avail)
