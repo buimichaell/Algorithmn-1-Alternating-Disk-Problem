@@ -38,18 +38,32 @@ def FindTimes(schedule, person1, person2)
 from datetime import datetime
 import datetime
 
-# opens file to get sample input
-with open("sample_input.txt", "r") as file:
-    data = file.read()  # reads data
-exec(data) # executes & defines variables
+# function used to read input and store all variables as global. additional global variable called num_people for loop use
+def load_and_set_globals(filename):
+    with open(filename, "r") as file:
+        data = file.read()
 
-p1_sched = person1_Schedule  # list of times not available 
-p1_avail = person1_DailyAct  # list of times available
-p2_sched = person2_Schedule  # list of times not available 
-p2_avail = person2_DailyAct  # list of times available
-duration = duration_of_meeting
+    exec(data, globals())
 
-com_sched = p1_sched + p2_sched
+    global all_schedules, all_availabilities, num_people
+    all_schedules = []
+    all_availabilities = []
+    person_num = 1
+
+    while True:
+        schedule_var = f'person{person_num}_Schedule'
+        avail_var = f'person{person_num}_DailyAct'
+
+        if schedule_var in globals() and avail_var in globals():
+            all_schedules.append(globals()[schedule_var])
+            all_availabilities.append(globals()[avail_var])
+            person_num += 1
+        else:
+            break
+    num_people = len(all_schedules)
+
+# read the input
+load_and_set_globals("sample_input.txt")
 
 
 """Method converting time string for comparison"""
@@ -100,12 +114,12 @@ def FindTimes(sched, avail):
     current = avail_list[0][0] # current set to first time in availability
 
 
+# below runs AvailabilityIntervals() for all schedules and stores it into new_sched1, new_sched2, ...
+for i in range(num_people):
+    availability = AvailabilityIntervals(all_schedules[i], all_availabilities[i])
+    globals()[f'new_sched{i+1}'] = availability
 
-new_sched = AvailabilityIntervals(p1_sched, p1_avail)
-# print(new_sched,"\n")
-new_sched2 = AvailabilityIntervals(p2_sched, p2_avail)
-# print(new_sched2)
-gap_sched = new_sched + new_sched2
+gap_sched = new_sched1 + new_sched2
 print("Gap:", gap_sched)
 
 
