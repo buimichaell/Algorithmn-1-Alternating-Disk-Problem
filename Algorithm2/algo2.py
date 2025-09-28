@@ -98,6 +98,7 @@ def AvailabilityIntervals(sched, avail):
         gap_times.append([current.strftime("%H:%M"), last.strftime("%H:%M")])
 
     return gap_times
+
 """Lists time intervals to sort and filter out overlapping times by start time interval"""
 def MergeLists(schedule_list):
     if not schedule_list: #returns if input is empty
