@@ -94,6 +94,19 @@ def AvailabilityIntervals(sched, avail):
         gap_times.append([current.strftime("%H:%M"), last.strftime("%H:%M")])
 
     return gap_times
+"""Lists time intervals to sort and filter out overlapping times by start time interval"""
+def MergeLists(schedule_list):
+    if not schedule_list: #returns if input is empty
+        return []
+    schedule_list.sort(key=lambda x: datetime.datetime.strptime(x[0], "%H:%M")) #sorts the list based on data time
+    merged_list = [schedule_list[0]]
+    for start, end in schedule_list[1:]:
+        last = merged_list[-1]
+        if datetime.datetime.strptime(start, "%H:%M") <= datetime.datetime.strptime(last[1], "%H:%M"): #checks for overlaps, then merges
+            last[1] = max(last[1], end)
+        else:
+            merged_list.append([start, end]) #adds to the merged list as a seperate interval if the current interval doesnt overlap
+    return merged_list #creates final list after determining the overlapped times.
 
 """Function sorting a list by the first time interval"""
 def SortList(schedule_list):
@@ -117,17 +130,11 @@ def FindTimes(sched, avail):
 
     current = avail_list[0][0] # current set to first time in availability
 
-
 # below runs AvailabilityIntervals() for all schedules and stores it into new_sched1, new_sched2, ...
 for i in range(num_people):
     availability = AvailabilityIntervals(all_schedules[i], all_availabilities[i])
     globals()[f'new_sched{i+1}'] = availability
 
-gap_sched = new_sched1 + new_sched2
-print("Gap:", gap_sched)
-
-
-
-
-
-
+combined_sched = person1_Schedule + person2_Schedule
+merged_gaps = MergeLists(combined_sched)
+print("merged gaps:", merged_gaps)
