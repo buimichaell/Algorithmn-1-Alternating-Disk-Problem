@@ -95,18 +95,22 @@ def AvailabilityIntervals(sched, avail):
 
     return gap_times
 
+"""Function sorting a list by the first time interval"""
+def SortList(schedule_list):
+    sorted_list = sorted(schedule_list, key=lambda time: datetime.datetime.strptime(time[0],"%H:%M"))
+    return sorted_list
 
 """Function that will compare the combined schedule and available times"""
 def FindTimes(sched, avail):
     sched_list, avail_list, both_free = []
 
     # converts list for comparison
-    for start, end in sched_list:
+    for start, end in sched:
         conTime(start)
         conTime(end)
         sched_list.append([start, end])
      # converts list for comparison
-    for start, end in avail_list:
+    for start, end in avail:
         conTime(start)
         conTime(end)
         avail_list.append([start, end])
