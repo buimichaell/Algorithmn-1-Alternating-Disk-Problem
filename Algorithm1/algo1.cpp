@@ -27,6 +27,13 @@ void recursiveFunction(headNode) {
 Notes: This can be optimized for sure, but is pretty simple implementation.
 */
 
+/*
+Groups Members:
+- Michael Bui
+- Natalia Garcia
+- Andrew Lee
+*/
+
 #include <string>
 #include <iostream>
 #include <fstream>
