@@ -34,6 +34,10 @@ def FindTimes(schedule, person1, person2)
     return meeting_times # list of times available for both to meet
 
 """
+# Groups Members:
+# - Michael Bui
+# - Natalia Garcia
+# - Andrew Lee
 
 from datetime import datetime
 import datetime
