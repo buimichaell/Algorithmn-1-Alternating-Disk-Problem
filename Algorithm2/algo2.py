@@ -36,6 +36,7 @@ def FindTimes(schedule, person1, person2)
 """
 
 from datetime import datetime
+import datetime
 
 # opens file to get sample input
 with open("sample_input.txt", "r") as file:
@@ -48,11 +49,13 @@ p2_sched = person2_Schedule  # list of times not available
 p2_avail = person2_DailyAct  # list of times available
 duration = duration_of_meeting
 
+com_sched = p1_sched + p2_sched
+
 
 """Method converting time string for comparison"""
 def conTime(time):
     time_format = "%H:%M"
-    return datetime.strptime(time, time_format)
+    return datetime.datetime.strptime(time, time_format)
 
 
 """Function that returns a persons availability in time intervals given their schedule and availability"""
@@ -79,9 +82,34 @@ def AvailabilityIntervals(sched, avail):
     return gap_times
 
 
+"""Function that will compare the combined schedule and available times"""
+def CompareTimes(sched, avail):
+    sched_list, avail_list, both_free = []
+
+    for start, end in sched_list:
+        conTime(start)
+        conTime(end)
+        sched_list.append([start, end])
+    
+    for start, end in avail_list:
+        conTime(start)
+        conTime(end)
+        avail_list.append([start, end])
+
+    current = avail_list[0][0]
+
+    print(avail_list)
+
+
 new_sched = AvailabilityIntervals(p1_sched, p1_avail)
-print(new_sched,"\n")
+# print(new_sched,"\n")
 new_sched2 = AvailabilityIntervals(p2_sched, p2_avail)
-print(new_sched2)
+# print(new_sched2)
+gap_sched = new_sched + new_sched2
+print("Gap:", gap_sched)
+
+
+
+
 
 
